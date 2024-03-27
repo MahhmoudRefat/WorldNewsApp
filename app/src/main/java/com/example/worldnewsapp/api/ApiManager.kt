@@ -9,7 +9,7 @@ import retrofit2.create
 
 object ApiManager {
 
-    private lateinit var retrofit: Retrofit
+    private  var retrofit: Retrofit
 
     init {
         //custom logger with lambda expression
