@@ -14,7 +14,7 @@ object ApiManager {
     init {
         //custom logger with lambda expression
         val logging = HttpLoggingInterceptor { message ->
-            Log.e("Api -> ", message)
+            Log.d("Api -> ", message)
         }
         logging.setLevel(HttpLoggingInterceptor.Level.BODY)
         val client = OkHttpClient.Builder()
