@@ -5,13 +5,11 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.TableLayout
 import androidx.core.view.isVisible
 import com.example.worldnewsapp.R
 import com.example.worldnewsapp.api.ApiManager
 import com.example.worldnewsapp.api.model.sourcesResponse.Source
 import com.example.worldnewsapp.api.model.sourcesResponse.SourcesResponse
-import com.example.worldnewsapp.databinding.FragmentNewsBinding
 import com.example.worldnewsapp.databinding.FragmentNewsTopicsBinding
 import com.example.worldnewsapp.ui.newsFragment.newsFragment
 import com.google.android.material.tabs.TabLayout
@@ -19,7 +17,7 @@ import com.google.gson.Gson
 import retrofit2.Call
 import retrofit2.Response
 
-class NewsTopics : Fragment() {
+class NewsSourcesFragment : Fragment() {
     lateinit var viewbinding: FragmentNewsTopicsBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {

@@ -4,7 +4,7 @@ import android.os.Bundle
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import com.example.worldnewsapp.databinding.ActivityMainBinding
-import com.example.worldnewsapp.ui.home.newsSources.NewsTopics
+import com.example.worldnewsapp.ui.home.newsSources.NewsSourcesFragment
 
 class MainActivity : AppCompatActivity() {
     lateinit var viewbinding : ActivityMainBinding
@@ -15,7 +15,7 @@ class MainActivity : AppCompatActivity() {
         setContentView(viewbinding.root)
 
 
-        supportFragmentManager.beginTransaction().replace(R.id.fragment_container,NewsTopics()).commit()
+        supportFragmentManager.beginTransaction().replace(R.id.fragment_container_main,NewsSourcesFragment()).commit()
 
 
     }
