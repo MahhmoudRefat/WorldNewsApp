@@ -10,15 +10,15 @@ import com.example.worldnewsapp.R
 import com.example.worldnewsapp.api.ApiManager
 import com.example.worldnewsapp.api.model.sourcesResponse.Source
 import com.example.worldnewsapp.api.model.sourcesResponse.SourcesResponse
-import com.example.worldnewsapp.databinding.FragmentNewsTopicsBinding
-import com.example.worldnewsapp.ui.newsFragment.newsFragment
+import com.example.worldnewsapp.databinding.FragmentNewsSourcesBinding
+import com.example.worldnewsapp.ui.newsFragment.NewsFragment
 import com.google.android.material.tabs.TabLayout
 import com.google.gson.Gson
 import retrofit2.Call
 import retrofit2.Response
 
 class NewsSourcesFragment : Fragment() {
-    lateinit var viewbinding: FragmentNewsTopicsBinding
+    lateinit var viewbinding: FragmentNewsSourcesBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -29,7 +29,7 @@ class NewsSourcesFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        viewbinding = FragmentNewsTopicsBinding.inflate(inflater, container, false)
+        viewbinding = FragmentNewsSourcesBinding.inflate(inflater, container, false)
         return viewbinding.root
 
     }
@@ -41,7 +41,7 @@ class NewsSourcesFragment : Fragment() {
         getNewsSources()
     }
 
-        val newsFragment = newsFragment()
+        val newsFragment = NewsFragment()
     private fun initviews() {
         childFragmentManager.beginTransaction().replace(R.id.fragment_container,newsFragment).commit()
 
@@ -109,7 +109,6 @@ class NewsSourcesFragment : Fragment() {
             }
 
             override fun onTabUnselected(p0: TabLayout.Tab?) {
-                TODO("Not yet implemented")
             }
         })
 

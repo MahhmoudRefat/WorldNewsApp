@@ -5,10 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.SimpleAdapter.ViewBinder
 import androidx.core.view.isVisible
-import androidx.viewbinding.ViewBinding
-import com.example.worldnewsapp.R
 import com.example.worldnewsapp.api.ApiManager
 import com.example.worldnewsapp.api.model.newsResponse.Article
 import com.example.worldnewsapp.api.model.newsResponse.newsResponse
@@ -21,7 +18,7 @@ import retrofit2.Callback
 import retrofit2.Response
 
 
-class newsFragment : Fragment() {
+class NewsFragment : Fragment() {
 
     lateinit var viewBinding: FragmentNewsBinding
 
@@ -44,9 +41,10 @@ class newsFragment : Fragment() {
 
     private fun loadNews() {
 
+
         changeLoadingVisibility(true)
-        source?.id?.let {
-            ApiManager.getServices().getNews(source = it).enqueue(object : Callback<newsResponse> {
+        source?.id?.let {sourceId->
+            ApiManager.getServices().getNews(source = sourceId).enqueue(object : Callback<newsResponse> {
                 override fun onFailure(call: Call<newsResponse>, t: Throwable) {
                     showError(t.message)
                     changeLoadingVisibility(false)
@@ -58,12 +56,13 @@ class newsFragment : Fragment() {
                 ) {
                     changeLoadingVisibility(false)
                     if (response.isSuccessful) {
-                        showNewsSources(response.body()?.articles)
+                        showNewsList(response.body()?.articles)
+                        return
 
                     } else {
                         val responseJson = response.errorBody()?.string()
                         val errorResponse =
-                            Gson().fromJson(responseJson, SourcesResponse::class.java)
+                            Gson().fromJson(responseJson, newsResponse::class.java)
                         showError(errorResponse.message)
                     }
                 }
@@ -71,13 +70,14 @@ class newsFragment : Fragment() {
         }
     }
 
-    private fun showNewsSources(articles: List<Article>?) {
-        TODO("Not yet implemented")
+    private fun showNewsList(articles: List<Article>?) {
+    
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
     }
+
     fun changeLoadingVisibility(isLoadingVisible: Boolean) {
         viewBinding.pbLoading.isVisible = isLoadingVisible
     }

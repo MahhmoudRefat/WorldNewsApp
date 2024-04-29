@@ -6,6 +6,7 @@
     android:layout_height="match_parent"
     tools:context=".ui.home.newsSources.NewsSourcesFragment">
 
+
     <com.google.android.material.tabs.TabLayout
         android:id="@+id/tab_layout"
         android:layout_width="match_parent"
@@ -15,7 +16,13 @@
         app:tabMode="scrollable"
         app:tabSelectedTextColor="@color/white"
         app:tabTextColor="@color/dark_green" />
-
+    <FrameLayout
+        android:id="@+id/fragment_container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_constraintTop_toBottomOf="@id/tab_layout"
+        app:layout_constraintBottom_toBottomOf="parent"
+        />
 
     <ProgressBar
         android:id="@+id/pb_loading"
@@ -59,11 +66,5 @@
 
     </LinearLayout>
 
-    <FrameLayout
-        android:id="@+id/fragment_container"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        app:layout_constraintTop_toBottomOf="@id/tab_layout"
-        app:layout_constraintBottom_toBottomOf="parent"
-        />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
