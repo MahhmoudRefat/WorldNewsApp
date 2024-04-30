@@ -7,4 +7,5 @@
     <string name="news_app_title">News App</string>
     <string name="search_articles">search articles</string>
     <string name="try_again">try again</string>
+    <string name="name">Name</string>
 </resources>

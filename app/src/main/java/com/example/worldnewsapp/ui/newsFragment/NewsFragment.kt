@@ -70,12 +70,19 @@ class NewsFragment : Fragment() {
         }
     }
 
+    val adapter = NewsAdapter(null)
     private fun showNewsList(articles: List<Article>?) {
+        adapter.changeData(articles)
     
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        initviews()
+    }
+
+    private fun initviews() {
+        viewBinding.newsRecycler.adapter = adapter
     }
 
     fun changeLoadingVisibility(isLoadingVisible: Boolean) {

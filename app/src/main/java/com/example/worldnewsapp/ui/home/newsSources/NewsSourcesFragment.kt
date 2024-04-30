@@ -55,7 +55,7 @@ class NewsSourcesFragment : Fragment() {
         viewbinding.pbLoading.isVisible = isLoadingVisible
     }
 
-    private fun getNewsSources() {
+     private fun getNewsSources() {
 
 
         //calling the api
@@ -109,8 +109,10 @@ class NewsSourcesFragment : Fragment() {
             }
 
             override fun onTabUnselected(p0: TabLayout.Tab?) {
+
             }
         })
+        viewbinding.tabLayout.getTabAt(0)?.select()
 
     }
 

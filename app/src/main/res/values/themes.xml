@@ -6,4 +6,7 @@
     </style>
 
     <style name="Theme.WorldNewsApp" parent="Base.Theme.WorldNewsApp" />
+     <style name="RoundedSquare">
+         <item name="cornerSize">10%</item>
+     </style>
 </resources>

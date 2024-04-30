@@ -57,7 +57,8 @@ dependencies {
 
     //room
     val room_version = "2.6.1"
-
+    //glide
+    implementation ("com.github.bumptech.glide:glide:4.16.0")
     implementation("androidx.room:room-runtime:$room_version")
     kapt("androidx.room:room-compiler:$room_version")
 
